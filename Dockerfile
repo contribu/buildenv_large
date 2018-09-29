@@ -6,11 +6,13 @@ RUN \
   && wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list \
   && apt-get update \
   && apt-get install -y \
+    libc6-dbg \
     intel-ipp-64bit-2019.0-045 \
     libboost-all-dev \
   && ( \
     cd $(mktemp -d) \
     && echo 'install latest valgrind to support instructions used in ipp' \
+    && echo 'libc6-dbg is required' \
     && wget ftp://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2 \
     && tar xf valgrind-3.13.0.tar.bz2 \
     && cd valgrind-3.13.0 \

@@ -6,9 +6,10 @@ RUN \
   && wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list \
   && apt-get update \
   && apt-get install -y \
-    libc6-dbg \
     intel-ipp-64bit-2019.0-045 \
     libboost-all-dev \
+    libc6-dbg \
+    libgtest-dev \
   && ( \
     cd $(mktemp -d) \
     && echo 'install latest valgrind to support instructions used in ipp' \
@@ -18,6 +19,16 @@ RUN \
     && cd valgrind-3.13.0 \
     && ./configure \
     && make -j `nproc` \
+    && make install \
+  ) \
+  && ( \
+    cd $(mktemp -d) \
+    && git clone https://github.com/google/benchmark.git \
+    && cd benchmark \
+    && mkdir build \
+    && cd build \
+    && cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DBENCHMARK_ENABLE_GTEST_TESTS=OFF \
+    && make -j 1 \
     && make install \
   ) \
   && rm -rf /var/lib/apt/lists/* \

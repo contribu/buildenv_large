@@ -16,13 +16,13 @@ jobs:
           command: |
             set -u
 
-            DOCKER_TAG=$DOCKER_USER/buildenv_docker:$CIRCLE_BRANCH
+            DOCKER_TAG=$DOCKER_USER/buildenv_large:$CIRCLE_BRANCH
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker tag build $DOCKER_TAG
             docker push $DOCKER_TAG
 
             if [ "$CIRCLE_BRANCH" == "master" ]; then
-              DOCKER_TAG_LATEST=$DOCKER_USER/buildenv_docker:latest
+              DOCKER_TAG_LATEST=$DOCKER_USER/buildenv_large:latest
               docker tag build $DOCKER_TAG_LATEST
               docker push $DOCKER_TAG_LATEST
             fi

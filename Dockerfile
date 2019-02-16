@@ -1,4 +1,4 @@
-FROM contribu/buildenv_docker
+FROM contribu/buildenv_docker:feature/bionic
 
 RUN \
   wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB \

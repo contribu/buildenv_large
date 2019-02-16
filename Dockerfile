@@ -6,7 +6,7 @@ RUN \
   && wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list \
   && apt-get update \
   && apt-get install -y \
-    intel-ipp-64bit-2019.0-045 \
+    intel-ipp-64bit-2019.2-057 \
     libboost-all-dev \
     libc6-dbg \
     libgtest-dev \
@@ -14,9 +14,9 @@ RUN \
     cd $(mktemp -d) \
     && echo 'install latest valgrind to support instructions used in ipp' \
     && echo 'libc6-dbg is required' \
-    && wget ftp://sourceware.org/pub/valgrind/valgrind-3.13.0.tar.bz2 \
-    && tar xf valgrind-3.13.0.tar.bz2 \
-    && cd valgrind-3.13.0 \
+    && wget ftp://sourceware.org/pub/valgrind/valgrind-3.14.0.tar.bz2 \
+    && tar xf valgrind-3.14.0.tar.bz2 \
+    && cd valgrind-3.14.0 \
     && ./configure \
     && make -j `nproc` \
     && make install \

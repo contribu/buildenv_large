@@ -19,7 +19,7 @@ RUN \
     && tar xf valgrind-3.14.0.tar.bz2 \
     && cd valgrind-3.14.0 \
     && ./configure \
-    && make -j 4 \
+    && (make -j 4 || make -j 2 || make -j 1 || make -j 1) \
     && make install \
   ) \
   && ( \
@@ -29,7 +29,7 @@ RUN \
     && mkdir build \
     && cd build \
     && cmake .. -DCMAKE_BUILD_TYPE=RELEASE -DBENCHMARK_ENABLE_GTEST_TESTS=OFF \
-    && make -j 4 \
+    && (make -j 4 || make -j 2 || make -j 1 || make -j 1) \
     && make install \
   ) \
   && rm -rf /var/lib/apt/lists/* \

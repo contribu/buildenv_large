@@ -7,6 +7,7 @@ RUN \
   && apt-get update \
   && apt-get install -y \
     intel-ipp-64bit-2019.2-057 \
+    libarmadillo-dev \
     libboost-all-dev \
     libc6-dbg \
     libgtest-dev \

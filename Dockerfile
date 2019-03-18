@@ -6,11 +6,13 @@ RUN \
   && wget https://apt.repos.intel.com/setup/intelproducts.list -O /etc/apt/sources.list.d/intelproducts.list \
   && apt-get update \
   && apt-get install -y \
+    ccache \
     intel-ipp-64bit-2019.2-057 \
     libarmadillo-dev \
     libboost-all-dev \
     libc6-dbg \
     libgtest-dev \
+    ninja-build \
   && ( \
     cd $(mktemp -d) \
     && echo 'install latest valgrind to support instructions used in ipp' \

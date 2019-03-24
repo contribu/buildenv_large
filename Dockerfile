@@ -1,4 +1,4 @@
-FROM contribu/buildenv_docker:cosmic
+FROM contribu/buildenv_docker:cosmic_ruby2.6
 
 RUN \
   wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB \

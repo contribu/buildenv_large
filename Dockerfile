@@ -35,6 +35,15 @@ RUN \
     && (make -j 4 || make -j 2 || make -j 1 || make -j 1) \
     && make install \
   ) \
+  && ( \
+    cd $(mktemp -d) \
+    && git clone https://github.com/xiph/rnnoise.git \
+    && cd rnnoise \
+    && ./autogen.sh \
+    && ./configure \
+    && (make -j 4 || make -j 1) \
+    && make install \
+  ) \
   && rm -rf /var/lib/apt/lists/* \
   && rm -rf /tmp/* \
   && rm -rf /var/tmp/*

@@ -14,6 +14,7 @@ RUN \
     libc6-dbg \
     libgtest-dev \
     ninja-build \
+    sndfile-programs \
   && ( \
     cd $(mktemp -d) \
     && echo 'install latest valgrind to support instructions used in ipp' \
